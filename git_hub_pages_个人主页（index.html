@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Jiaru LI | Academic Homepage</title>
+  <meta name="description" content="Jiaru LI - Academic profile, education, publications and research projects." />
+  <meta property="og:title" content="Jiaru LI | Academic Homepage" />
+  <meta property="og:description" content="Academic profile, education, publications and research projects." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="/avatar.jpg" />
+  <meta name="theme-color" content="#0f172a" />
+  <!-- Add Google Fonts for handwritten effect -->
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Parisienne&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #0b1220;       /* Dark background */
+      --card: #0f172a;     /* Card background */
+      --fg: #e5e7eb;       /* Text color */
+      --muted: #94a3b8;    /* Secondary text */
+      --accent: #38bdf8;   /* Accent color */
+      --link: #7dd3fc;     /* Link color */
+      --border: #1f2a44;   /* Border color */
+      --signature-color: #e5e7eb; /* Signature color */
+    }
+    @media (prefers-color-scheme: light) {
+      :root {
+        --bg:#f8fafc;
+        --card:#ffffff;
+        --fg:#0f172a;
+        --muted:#475569;
+        --accent:#0ea5e9;
+        --link:#0284c7;
+        --border:#e2e8f0;
+        --signature-color: #0f172a;
+      }
+    }
+    * { box-sizing: border-box; }
+    html, body { height: 100%; }
+    body {
+      margin: 0; font-family: system-ui, -apple-system, Segoe UI, Roboto, Noto Sans, PingFang SC, "Microsoft Yahei", sans-serif;
+      background: radial-gradient(1200px 800px at 70% -20%, rgba(56,189,248,.15), transparent 60%) , var(--bg);
+      color: var(--fg); line-height: 1.6;
+    }
+    .container { max-width: 980px; margin: 0 auto; padding: 24px; }
+    header { display: flex; align-items: center; gap: 18px; padding: 18px 0 8px; }
+    header img { width: 84px; height: 84px; border-radius: 50%; object-fit: cover; border: 1px solid var(--border); }
+    .title { flex: 1; }
+    h1 {
+      margin: 4px 0;
+      font-size: 28px;
+      letter-spacing: .2px;
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+    .signature {
+      font-family: 'Dancing Script', cursive;
+      font-size: 32px;
+      color: var(--signature-color);
+      position: relative;
+      padding-left: 12px;
+      margin-left: 8px;
+    }
+    .signature::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 50%;
+      height: 24px;
+      width: 1px;
+      background: var(--muted);
+      transform: translateY(-50%);
+    }
+    .subtitle { color: var(--muted); font-size: 14px; margin-top: 4px; }
+    nav { display:flex; gap:12px; flex-wrap: wrap; margin: 8px 0 4px; }
+    nav a { text-decoration: none; color: var(--link); font-size:14px; padding:6px 10px; border:1px solid var(--border); border-radius: 999px; }
+    nav a:hover { background: rgba(125,211,252,.12); border-color: var(--link); }
+
+    .grid { display: grid; grid-template-columns: 1fr; gap: 16px; margin-top: 16px; }
+    @media (min-width: 880px) { .grid { grid-template-columns: 1.2fr .8fr; } }
+
+    .card { background: linear-gradient(180deg, rgba(255,255,255,.02), rgba(255,255,255,.00)), var(--card); border:1px solid var(--border); border-radius: 16px; padding: 18px 18px; }
+    .card h2 { margin: 0 0 8px; font-size: 20px; }
+    .muted { color: var(--muted); }
+    .tag { display:inline-block; font-size: 12px; padding: 2px 8px; border:1px solid var(--border); border-radius:999px; margin-right:6px; color: var(--muted); }
+    .list { list-style: none; padding: 0; margin: 8px 0 0; }
+    .list li { padding: 10px 0; border-bottom: 1px dashed var(--border); }
+    .list li:last-child { border-bottom: none; }
+
+    .pub-title { font-weight: 600; }
+    .pub-venue { font-size: 13px; color: var(--muted); }
+
+    footer { margin: 28px 0 10px; color: var(--muted); font-size: 13px; text-align: center; }
+    .dot { margin: 0 4px; opacity:.5 }
+    .accent { color: var(--accent); font-weight: 600; }
+    .btn { display:inline-block; padding:8px 12px; border-radius:10px; border:1px solid var(--border); text-decoration:none; color:var(--fg); }
+    .btn:hover { border-color: var(--link); }
+    code { background: rgba(148,163,184,.15); padding: 2px 6px; border-radius: 6px; }
+
+    /* Toggle for signature style */
+    .signature-toggle {
+      display: flex;
+      gap: 8px;
+      margin: 10px 0;
+      align-items: center;
+      font-size: 13px;
+      color: var(--muted);
+    }
+    .toggle-switch {
+      position: relative;
+      display: inline-block;
+      width: 40px;
+      height: 20px;
+    }
+    .toggle-switch input {
+      opacity: 0;
+      width: 0;
+      height: 0;
+    }
+    .slider {
+      position: absolute;
+      cursor: pointer;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: var(--border);
+      transition: .4s;
+      border-radius: 34px;
+    }
+    .slider:before {
+      position: absolute;
+      content: "";
+      height: 16px;
+      width: 16px;
+      left: 2px;
+      bottom: 2px;
+      background-color: white;
+      transition: .4s;
+      border-radius: 50%;
+    }
+    input:checked + .slider {
+      background-color: var(--accent);
+    }
+    input:checked + .slider:before {
+      transform: translateX(20px);
+    }
+  </style>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Jiaru LI",
+    "url": "https://yourusername.github.io/",
+    "image": "https://yourusername.github.io/avatar.jpg",
+    "sameAs": [
+      "https://github.com/yourusername",
+      "https://scholar.google.com/citations?user=XXXX",
+      "https://www.linkedin.com/in/yourusername"
+    ],
+    "jobTitle": "Student / Researcher",
+    "affiliation": {"@type":"Organization","name":"Ocean University of China & Heriot-Watt University"}
+  }
+  </script>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <img src="avatar.jpg" alt="Profile Photo" onerror="this.style.display='none'" />
+      <div class="title">
+        <h1>Jiaru LI <span class="accent signature">Jiaru LI</span></h1>
+        <div class="subtitle">Undergraduate · Computer Science & Robotics | Research: Sequence Classification, Robotics</div>
+        <nav>
+          <a href="#about">About</a>
+          <a href="#education">Education</a>
+          <a href="#publications">Publications</a>
+          <a href="#projects">Projects</a>
+          <a href="#contact">Contact</a>
+          <a href="CV.pdf" target="_blank" rel="noopener">Download CV</a>
+        </nav>
+      </div>
+    </header>
+
+    <section class="grid">
+      <!-- Main Column -->
+      <div class="card">
+        <h2 id="about">Personal Introduction</h2>
+        <p>
+          I am <strong>Jiaru LI</strong>, currently pursuing a degree in <em>Computer Science and Robotics</em> at Ocean University of China and Heriot-Watt University.
+          My research interests include <span class="accent">Machine Learning</span>, <span class="accent">Robotics</span>, and <span class="accent">Protein Language Models</span>.
+          I am passionate about advancing my research capabilities and contributing to the scientific community.
+        </p>
+        <p class="muted">Research Keywords: <span class="tag">ESM/ProtT5</span><span class="tag">Computer Science</span><span class="tag">Protein Large Language Models</span><span class="tag">Robotics</span></p>
+      </div>
+
+      <!-- Sidebar -->
+      <aside class="card">
+        <h2>Quick Information</h2>
+        <ul class="list">
+          <li><strong>Email:</strong> <a class="muted" href="mailto:ljr9504@stu.ouc.edu.cn">ljr9504@stu.ouc.edu.cn</a></li>
+          <li><strong>GitHub:</strong> <a class="muted" href="https://github.com/Daxton" target="_blank" rel="noopener">@Daxton</a></li>
+          <li><strong>Google Scholar:</strong> <a class="muted" href="#" target="_blank" rel="noopener">Scholar Profile</a></li>
+          <li><strong>Location:</strong> <span class="muted">Qingdao, China</span></li>
+        </ul>
+      </aside>
+    </section>
+
+    <section class="grid">
+      <div class="card">
+        <h2 id="education">Education</h2>
+        <ul class="list">
+          <li>
+            <div><strong>Bachelor of Computer Science</strong> — Ocean University of China <span class="muted">(2023 — Present)</span></div>
+            <div class="muted">Major: Computer Science and Technology</div>
+          </li>
+          <li>
+            <div><strong>Dual Degree in Robotics</strong> — Heriot-Watt University Joint Program <span class="muted">(2023 — Present)</span></div>
+            <div class="muted">Research Areas: Mobile Robotics, Robotic Arm Control, Embedded Systems</div>
+          </li>
+        </ul>
+      </div>
+
+      <aside class="card">
+        <h2 id="contact">Contact</h2>
+        <p>For research collaborations or inquiries, please feel free to contact me via email.</p>
+        <p><a class="btn" href="mailto:ljr9504@stu.ouc.edu.cn">Send Email</a></p>
+      </aside>
+    </section>
+
+    <footer>
+      © <span id="year"></span> Jiaru LI<span class="dot">·</span>Hosted on GitHub Pages<span class="dot">·</span>Last updated: <span id="lastmod"></span>
+    </footer>
+  </div>
+
+  <script>
+    // Year and last modified date
+    document.getElementById('year').textContent = new Date().getFullYear();
+    document.getElementById('lastmod').textContent = new Date(document.lastModified).toLocaleDateString();
+  </script>
+</body>
+</html>
